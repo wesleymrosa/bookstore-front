@@ -1,0 +1,21 @@
+:host {
+    display: block;
+    height: calc(100vh - 70px); /* 40px header + 30px footer */
+    overflow: hidden;
+  }
+  
+  .container {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .sidenav {
+    width: 15%;
+    background-color: #007ACC;
+    color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
