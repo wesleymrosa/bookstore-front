@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaService } from '../categoria/categoria.service';
+import { Categoria } from '../categoria-read/categoria.models';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-categoria-read',
@@ -6,16 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categoria-read.component.css']
 })
 export class CategoriaReadComponent implements OnInit {
-
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
+  dataSource = new MatTableDataSource<Categoria>();
 
-  dataSource = [
-    { id: 1, nome: 'Romance', descricao: 'Histórias de amor', acoes: 'Editar' },
-    { id: 2, nome: 'Tecnologia', descricao: 'Livros sobre TI', acoes: 'Editar' },
-    { id: 3, nome: 'Aventura', descricao: 'Exploração e ação', acoes: 'Editar' },
-  ];
+  constructor(private service: CategoriaService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.findAll();
+  }
 
-  ngOnInit(): void {}
+  findAll(): void {
+    this.service.findAll().subscribe(resposta => {
+      this.dataSource.data = resposta;
+    });
+  }
 }

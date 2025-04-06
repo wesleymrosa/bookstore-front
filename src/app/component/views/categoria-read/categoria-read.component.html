@@ -3,8 +3,8 @@
       <h1>Categoria</h1>
     </div>
   
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 content-table">
-  
+    <table *ngIf="dataSource" mat-table [dataSource]="dataSource" class="mat-elevation-z8 content-table">
+      
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -26,12 +26,12 @@
       <!-- Ações Column -->
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
-        <td mat-cell *matCellDef="let element"> {{ element.acoes }} </td>
+        <td mat-cell *matCellDef="let element"> Editar </td>
       </ng-container>
   
       <!-- Renderização das linhas -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
   
