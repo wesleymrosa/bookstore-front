@@ -8,9 +8,42 @@
     margin-bottom: 3rem;
   }
   
+  /* Remover este trecho pois conflita com styles.css */
   .title h1 {
+    /* color: #2e2e2e; */ /* ❌ Removido */
     font-size: 2rem;
-    color: #2e2e2e;
     font-weight: 500;
+  }
+  
+  /* Espaço inferior no botão */
+  button {
+    margin-bottom: 1rem;
+  }
+  
+  /* Ajuste da tabela */
+  .table {
+    width: 100%;
+  }
+  
+  /* Ícone azul para livros */
+  .mat-icon.book {
+    color: #007ACC;
+    margin-left: .6rem;
+  }
+  
+  /* Ícone amarelo para editar */
+  .edit {
+    color: rgb(206, 173, 24);
+  }
+  
+  /* Ícone vermelho para deletar */
+  .delete {
+    color: rgb(228, 56, 56);
+    margin-left: .5rem;
+  }
+  
+  /* Largura da coluna de cabeçalho */
+  .mat-header {
+    width: 5rem;
   }
   

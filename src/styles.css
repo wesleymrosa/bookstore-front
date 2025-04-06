@@ -1,8 +1,46 @@
+/* Fundo branco padrão e texto azul */
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #007ACC; /* texto azul por padrão */
+}
+
+/* Toolbar e sidebar */
+mat-toolbar, .mat-sidenav {
+  background-color: #007ACC !important;
+  color: #ffffff !important;
+}
+
+/* Navegação */
+.mat-list-item {
+  color: #ffffff !important;
+}
+
+.mat-list-item:hover {
+  background-color: #005F99 !important;
+}
+
+/* Ícones */
+.material-icons {
+  color: #ffffff !important;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+/* Textos da tabela */
+::ng-deep .mat-header-cell,
+::ng-deep .mat-cell {
+  color: #007ACC !important;
+  font-weight: 500;
+}
+
+/* Título principal */
+::ng-deep h1 {
+  color: #007ACC !important;
+  font-weight: 600;
+  font-size: 2rem;
+}
