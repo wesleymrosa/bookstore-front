@@ -13,6 +13,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './component/views/home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import { CategoriaReadComponent } from './component/views/categoria-read/categoria-read.component';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
     FooterComponent,
     NavComponent,
     HomeComponent,
+    CategoriaReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
 
   ],
   providers: [],
