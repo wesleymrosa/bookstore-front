@@ -15,6 +15,12 @@ mat-toolbar, .mat-sidenav {
   color: #ffffff !important;
 }
 
+/* Ícones dentro da toolbar e sidenav */
+mat-toolbar .material-icons,
+.mat-sidenav .material-icons {
+  color: #ffffff;
+}
+
 /* Navegação */
 .mat-list-item {
   color: #ffffff !important;
@@ -24,9 +30,8 @@ mat-toolbar, .mat-sidenav {
   background-color: #005F99 !important;
 }
 
-/* Ícones */
+/* Ícones gerais */
 .material-icons {
-  color: #ffffff !important;
   vertical-align: middle;
   margin-right: 0.4rem;
 }
