@@ -35,6 +35,11 @@
   .edit {
     color: rgb(206, 173, 24);
   }
+
+  /*Ajuste do ícone livro*/
+  .livros {
+    margin-left: .5rem;
+  }
   
   /* Ícone vermelho para deletar */
   .delete {

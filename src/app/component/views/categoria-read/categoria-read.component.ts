@@ -9,7 +9,9 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./categoria-read.component.css']
 })
 export class CategoriaReadComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
+  
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
+
   dataSource = new MatTableDataSource<Categoria>();
 
   constructor(private service: CategoriaService) {}
