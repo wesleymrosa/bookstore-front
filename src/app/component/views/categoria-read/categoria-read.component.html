@@ -3,7 +3,10 @@
     <h1>Categoria</h1>
   </div>
 
-  <button class="mat-elevation-z8" color="primary">NOVA CATEGORIA</button>
+  <button class="mat-elevation-z8" (click)="navegarParaCategoriaCreate()" mat-stroked-button color="primary">
+    NOVA CATEGORIA
+  </button>
+  
 
   <table *ngIf="dataSource" mat-table [dataSource]="dataSource" class="mat-elevation-z8 content-table">
 
