@@ -14,7 +14,7 @@ export class CategoriaService {
   constructor(private http: HttpClient) {}
 
   findAll(): Observable<Categoria[]> {
-    const url = `${this.baseUrl}/v1/categorias`;
+    const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);
   }
 
@@ -22,5 +22,8 @@ export class CategoriaService {
     const url = `${this.baseUrl}/categorias`;
     return this.http.post<Categoria>(url, categoria);
   }
-  
+
+  mensagem(msg: string): void {
+    window.alert(msg); // ou substitua por MatSnackBar se quiser
+  }
 }
