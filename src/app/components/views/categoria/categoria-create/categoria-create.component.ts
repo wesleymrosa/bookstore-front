@@ -20,8 +20,7 @@ export class CategoriaCreateComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   create(): void {
     const novaCategoria = {
@@ -35,8 +34,14 @@ export class CategoriaCreateComponent implements OnInit {
         this.router.navigate(['categorias']);
       },
       error: err => {
-        this.service.mensagem('Erro ao criar categoria!');
-        console.error(err);
+        if (err.error?.errors?.length) {
+          for (let i = 0; i < err.error.errors.length; i++) {
+            this.service.mensagem(err.error.errors[i].message);
+          }
+        } else {
+          this.service.mensagem('Erro ao criar categoria!');
+          console.error(err);
+        }
       }
     });
   }
