@@ -1,8 +1,10 @@
+// src/app/components/views/categoria/categoria.service.ts
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Categoria } from '../categoria-read/categoria.models';
+import { Categoria } from './categoria.models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -24,12 +26,21 @@ export class CategoriaService {
     return this.http.post<Categoria>(url, categoria);
   }
 
+  findById(id: string): Observable<Categoria> {
+    const url = `${this.baseUrl}/categorias/${id}`;
+    return this.http.get<Categoria>(url);
+  }
+
+  delete(id: string): Observable<void> {
+    const url = `${this.baseUrl}/categorias/${id}`;
+    return this.http.delete<void>(url);
+  }
+
   mensagem(msg: string): void {
-    window.alert(msg); // ou substitua por MatSnackBar se quiser
-    this._snack.open('${str}', 'OK',{
+    this._snack.open(`${msg}`, 'OK', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
       duration: 3000
-    })
+    });
   }
 }
