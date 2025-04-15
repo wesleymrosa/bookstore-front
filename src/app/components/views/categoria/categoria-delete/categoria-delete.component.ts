@@ -28,15 +28,25 @@ export class CategoriaDeleteComponent implements OnInit {
     if (id) {
       this.service.findById(id).subscribe((resposta: Categoria) => {
         this.categoria = resposta;
+        console.log(this.categoria);
       });
     }
   }
 
   delete(): void {
     if (this.categoria.id) {
-      this.service.delete(this.categoria.id).subscribe(() => {
-        this.service.mensagem('Categoria excluída com sucesso!');
-        this.router.navigate(['categorias']);
+      this.service.delete(this.categoria.id).subscribe({
+        next: () => {
+          this.service.mensagem('Categoria excluída com sucesso!');
+          this.router.navigate(['categorias']);
+        },
+        error: (err) => {
+          if (err?.error?.error?.includes('integridade')) {
+            this.service.mensagem('Não é possível excluir: existem livros associados a esta categoria.');
+          } else {
+            this.service.mensagem('Categoria não excluída. Remova os livros vinculados antes de continuar.');
+          }
+        }
       });
     }
   }
