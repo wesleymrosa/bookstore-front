@@ -43,6 +43,15 @@ export class CategoriaUpdateComponent implements OnInit {
     }
   }
 
+  update(): void {
+    this.service.update(this.categoria).subscribe(() => {
+      this.router.navigate(['categorias']);
+      this.service.mensagem("Categoria atualizada com sucesso");
+    }, err => {
+      console.log(err);
+    });
+  }
+
   cancelar(): void {
     this.router.navigate(['/categorias']);
   }

@@ -3,16 +3,16 @@
 
   <mat-form-field class="form">
     <mat-label>Nome</mat-label>
-    <input matInput type="text" name="nome" [(ngModel)]="categoria.nome" [disabled]="!categoria.id">
+    <input matInput [(ngModel)]="categoria.nome" type="text" name="nome" >
   </mat-form-field>
 
   <mat-form-field class="form">
     <mat-label>Descrição</mat-label>
-    <textarea matInput name="descricao" [(ngModel)]="categoria.descricao" [disabled]="!categoria.id"></textarea>
+    <textarea matInput [(ngModel)]="categoria.descricao" name="descricao" ></textarea>
   </mat-form-field>
 
   <div class="buttons">
-    <button class="mat-elevation-z8" mat-stroked-button color="warn">ATUALIZAR</button>
-    <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="cancelar()">CANCELAR</button>
+    <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+    <button (click)="cancelar()" class="mat-elevation-z8" mat-stroked-button color="primary">CANCELAR</button>
   </div>
 </form>
