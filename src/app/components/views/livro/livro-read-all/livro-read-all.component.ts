@@ -1,7 +1,7 @@
-// src/app/components/views/livro/livro-read-all/livro-read-all.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LivroService } from '../livro.service';
+import { Livro } from './livro.model';
 
 @Component({
   selector: 'app-livro-read-all',
@@ -10,24 +10,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LivroReadAllComponent implements OnInit {
 
-  livros: any[] = []; // substitua por tipo se houver model
-  displayedColumns: string[] = ['id', 'título', 'livros', 'acoes'];
-  dataSource: any;
+  livros: Livro[] = [];
+  displayedColumns: string[] = ['id', 'titulo', 'livros', 'acoes'];
+  id_cat: string = "";
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private service: LivroService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // Aqui você pode futuramente buscar os livros da categoria via service
-    // Por enquanto, vamos simular:
-    this.livros = [
-      { id: 1, titulo: 'Angular para Ninjas' },
-      { id: 2, titulo: 'Spring Boot na Veia' }
-    ];
-    this.dataSource = this.livros;
+    this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
+    this.findAll();
+  }
+
+  findAll(): void {
+    this.service.findAllByCategoria(this.id_cat).subscribe((resposta: Livro[]) => {
+      this.livros = resposta;
+      console.log(this.livros);
+    });
   }
 
   navegarParaCategoriaCreate(): void {
-    const id_cat = this.route.snapshot.paramMap.get('id_cat');
-    this.router.navigate([`categorias/${id_cat}/livros/create`]);
+    this.router.navigate([`categorias/${this.id_cat}/livros/create`]);
   }
 }
