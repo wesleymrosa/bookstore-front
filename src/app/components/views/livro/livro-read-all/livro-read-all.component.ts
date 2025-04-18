@@ -11,7 +11,7 @@ import { Livro } from './livro.model';
 export class LivroReadAllComponent implements OnInit {
 
   livros: Livro[] = [];
-  displayedColumns: string[] = ['id', 'titulo', 'livros', 'acoes'];
+  displayedColumns: string[] = ['id', 'titulo', 'nome_autor', 'acoes'];
   id_cat: string = "";
 
   constructor(
