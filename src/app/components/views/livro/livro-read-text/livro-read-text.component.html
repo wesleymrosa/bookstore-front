@@ -5,12 +5,14 @@
       <h3>Autor: {{ livro.nome_autor }}</h3>
     </div>
   
-    <div class="texto">
-      <p>{{ livro.texto }}</p>
-    </div>
+    <div class="mat-elevation-z8 livro-container">
+      <div class="livro-texto">
+        <p>{{ livro.texto }}</p>
+      </div>
   
-    <div class="acoes">
-      <button mat-raised-button color="primary" (click)="voltar()">VOLTAR</button>
+      <div class="acoes">
+        <button mat-raised-button color="primary" (click)="voltar()">VOLTAR</button>
+      </div>
     </div>
   </div>
   

@@ -1,0 +1,46 @@
+/* src/app/components/views/livro/livro-read-text/livro-read-text.component.css */
+
+.content {
+    padding: 2rem;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .title h3 {
+    margin: 0.5rem 0;
+    font-weight: 400;
+    color: #555;
+  }
+  
+  .livro-container {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+  }
+  
+  .livro-texto {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+    white-space: pre-wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .acoes {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
