@@ -1,18 +1,17 @@
-<!-- src/app/components/views/livro/livro-read-text/livro-read-text.component.html -->
 <div class="content">
     <div class="title">
       <h1>{{ livro.titulo }}</h1>
       <h3>Autor: {{ livro.nome_autor }}</h3>
     </div>
   
-    <div class="mat-elevation-z8 livro-container">
-      <div class="livro-texto">
-        <p>{{ livro.texto }}</p>
-      </div>
+    <div class="texto">
+      <p>{{ livro.texto }}</p>
+    </div>
   
-      <div class="acoes">
-        <button mat-raised-button color="primary" (click)="voltar()">VOLTAR</button>
-      </div>
+    <div class="acoes">
+      <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="voltar()">
+        VOLTAR
+      </button>
     </div>
   </div>
   
