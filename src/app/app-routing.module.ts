@@ -9,45 +9,19 @@ import { LivroReadAllComponent } from './components/views/livro/livro-read-all/l
 import { LivroReadTextComponent } from './components/views/livro/livro-read-text/livro-read-text.component';
 import { LivroCreateComponent } from './components/views/livro/livro-create/livro-create.component';
 
-
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'categorias',
-    component: CategoriaReadComponent
-  },
-  {
-    path: 'categorias/create',
-    component: CategoriaCreateComponent
-  },
-  {
-    path: 'categorias/delete/:id',
-    component: CategoriaDeleteComponent
-  },
-  {
-    path: 'categorias/update/:id',
-    component: CategoriaUpdateComponent
-  },
-  {
-  path: 'categorias/:id_cat/livros',
-  component: LivroReadAllComponent
-},
-{
-  path: 'categorias/:id_cat/livros/:id_livro/read',
-  component: LivroReadTextComponent
-},
-{
-  path: 'categorias/:id_cat/livros/create',
-  component: LivroCreateComponent
-}
-
+  { path: '', component: HomeComponent },
+  { path: 'categorias', component: CategoriaReadComponent },
+  { path: 'categorias/create', component: CategoriaCreateComponent },
+  { path: 'categorias/delete/:id', component: CategoriaDeleteComponent },
+  { path: 'categorias/update/:id', component: CategoriaUpdateComponent },
+  { path: 'categorias/:id_cat/livros', component: LivroReadAllComponent },
+  { path: 'categorias/:id_cat/livros/:id_livro/read', component: LivroReadTextComponent },
+  { path: 'categorias/:id_cat/livros/create', component: LivroCreateComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

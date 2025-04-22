@@ -1,27 +1,45 @@
 form {
-    text-align: center;
-    width: 70%;
-    margin: 2rem auto 0 auto;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
-  }
-  
-  .form {
-    width: 100%;
-  }
-  
-  .buttons {
-    width: 100%;
-    text-align: start;
-  }
-  
-  button {
-    margin-right: .5rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
-  
+  text-align: center;
+  width: 70%;
+  margin: 2rem auto 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+.form {
+  width: 100%;
+}
+
+.buttons {
+  width: 100%;
+  text-align: start;
+}
+
+button {
+  margin-right: .5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Botão CRIAR: letra vermelha */
+.texto-vermelho {
+  color: #f44336 !important; /* vermelho forte */
+}
+
+/* Botão CANCELAR: letra azul */
+.texto-azul {
+  color: #007ACC !important; /* azul do VSCode */
+}
+
+/* Botão CRIAR desabilitado: cinza claro */
+.texto-opaco {
+  color: #d3d3d3 !important; /* lightgray */
+}
