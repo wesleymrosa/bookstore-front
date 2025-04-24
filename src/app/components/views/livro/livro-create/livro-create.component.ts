@@ -12,10 +12,15 @@ import { Livro } from '../livro-read-all/livro.model';
 export class LivroCreateComponent implements OnInit {
 
   id_cat: string = '';
+  livro: Livro = {
+    titulo: '',
+    nome_autor: '',
+    texto: ''
+  };
 
-  titulo = new FormControl("", [Validators.minLength(3)]);
-  nome_autor = new FormControl("", [Validators.minLength(3)]);
-  texto = new FormControl("", [Validators.minLength(10)]);
+  titulo = new FormControl('', [Validators.minLength(3), Validators.maxLength(100), Validators.required]);
+  nome_autor = new FormControl('', [Validators.minLength(3), Validators.maxLength(100), Validators.required]);
+  texto = new FormControl('', [Validators.minLength(10), Validators.maxLength(2000000), Validators.required]);
 
   constructor(
     private service: LivroService,
@@ -28,34 +33,36 @@ export class LivroCreateComponent implements OnInit {
   }
 
   create(): void {
-    const livro: Livro = {
-      titulo: this.titulo.value!,
-      nome_autor: this.nome_autor.value!,
-      texto: this.texto.value!
-    };
+    this.livro.titulo = this.titulo.value!;
+    this.livro.nome_autor = this.nome_autor.value!;
+    this.livro.texto = this.texto.value!;
 
-    this.service.create(livro, this.id_cat).subscribe(() => {
-      this.router.navigateByUrl(`/categorias/${this.id_cat}/livros`);
-      this.service.mensagem('Livro criado com sucesso!');
-    }, err => {
-      this.router.navigateByUrl(`/categorias/${this.id_cat}/livros`);
-      this.service.mensagem('Erro ao criar novo livro! Tente mais tarde.');
+    this.service.create(this.livro, this.id_cat).subscribe({
+      next: () => {
+        this.service.mensagem('Livro criado com sucesso!');
+        this.router.navigate([`/categorias/${this.id_cat}/livros`]);
+      },
+      error: err => {
+        if (err.error?.errors?.length) {
+          for (let i = 0; i < err.error.errors.length; i++) {
+            this.service.mensagem(err.error.errors[i].message);
+          }
+        } else {
+          this.service.mensagem('Erro ao criar livro!');
+          console.error(err);
+        }
+      }
     });
   }
 
-  getMessage(campo: FormControl): string | false {
-    if (campo === this.titulo && campo.invalid) {
-      return "O campo TÍTULO deve conter entre 3 e 100 caracteres";
-    }
+  cancel(): void {
+    this.router.navigate([`/categorias/${this.id_cat}/livros`]); // ✅ Redirecionamento correto
+  }
 
-    if (campo === this.nome_autor && campo.invalid) {
-      return "O campo NOME DO AUTOR deve conter entre 3 e 100 caracteres";
-    }
-
-    if (campo === this.texto && campo.invalid) {
-      return "O campo TEXTO deve conter entre 10 e 2.000.000 caracteres";
-    }
-
-    return false;
+  getMessage(control: FormControl): string {
+    if (control.hasError('required')) return 'Campo obrigatório';
+    if (control.hasError('minlength')) return `O campo deve ter no mínimo ${control.getError('minlength').requiredLength} caracteres`;
+    if (control.hasError('maxlength')) return `O campo deve ter no máximo ${control.getError('maxlength').requiredLength} caracteres`;
+    return 'Campo inválido';
   }
 }
