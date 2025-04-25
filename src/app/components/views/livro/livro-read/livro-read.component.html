@@ -1,0 +1,17 @@
+<!-- src/app/components/views/livro/livro-read/livro-read.component.html -->
+
+<h1 class="titulo-livro">{{ livro.titulo }}</h1>
+<h3 class="autor-livro">Autor: {{ livro.nome_autor }}</h3>
+
+<mat-card class="texto-livro mat-elevation-z4">
+  <p>{{ livro.texto }}</p>
+</mat-card>
+
+<button
+  class="mat-elevation-z8"
+  mat-stroked-button
+  color="primary"
+  (click)="voltar()"
+>
+  VOLTAR
+</button>
