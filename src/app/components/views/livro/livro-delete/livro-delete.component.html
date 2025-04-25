@@ -1,0 +1,25 @@
+<!-- livro-delete.component.html -->
+<h1>EXCLUIR LIVRO</h1>
+
+<p>Tem certeza que deseja excluir este livro?</p>
+
+<div class="buttons">
+  <button
+    (click)="delete()"
+    class="mat-elevation-z8"
+    mat-stroked-button
+    color="warn"
+  >
+    EXCLUIR
+  </button>
+
+  <button
+    (click)="cancel()"
+    class="mat-elevation-z8"
+    mat-stroked-button
+    color="primary"
+    type="button"
+  >
+    CANCELAR
+  </button>
+</div>
