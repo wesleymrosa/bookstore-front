@@ -1,3 +1,4 @@
+// livro-update.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -57,7 +58,7 @@ export class LivroUpdateComponent implements OnInit {
         this.router.navigate([`/categorias/${this.id_cat}/livros`]);
       },
       error: err => {
-        this.service.mensagem('Erro ao atualizar livro!');
+        this.service.mensagem('Não foi possível atualizar o livro nesse momento, tente mais tarde!');
         console.error(err);
       }
     });
