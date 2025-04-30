@@ -1,27 +1,141 @@
-# BookstoreFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+## 📘 Bookstore Front
 
-## Development server
+### 🌐 Visão Geral
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O **Bookstore Front** é o frontend da aplicação Bookstore, desenvolvido com **Angular 15**, que se conecta ao backend [Bookstore API](https://github.com/wesleymrosa/bookstore-api).  
+A aplicação permite o gerenciamento de **categorias** e **livros**, com uma interface intuitiva, responsiva e funcional, integrando-se a uma API RESTful construída com Spring Boot.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🚀 Funcionalidades
 
-## Build
+- 📚 Listar livros por categoria  
+- 🆕 Cadastrar novo livro  
+- ✏️ Editar e remover livros existentes  
+- 🗂️ Cadastrar, editar e excluir categorias  
+- 📖 Ler o conteúdo completo do livro  
+- 🔁 Navegação dinâmica por rotas  
+- 🔗 Integração em tempo real com a API REST do backend  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+### 🛠️ Tecnologias Utilizadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Frontend**
+- Angular 15  
+- TypeScript  
+- HTML5 + CSS3  
+- Angular Router  
+- Reactive Forms  
+- Angular Material  
 
-## Running end-to-end tests
+**Ferramentas**
+- Visual Studio Code  
+- Postman  
+- Git + GitHub  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+### 📁 Estrutura de Pastas
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+src/
+├── app/
+│   ├── component/
+│   │   └── views/
+│   │       ├── categoria/
+│   │       │   ├── categoria-create/
+│   │       │   ├── categoria-read/
+│   │       │   ├── categoria-update/
+│   │       │   └── categoria-delete/
+│   │       └── livro/
+│   │           ├── livro-create/
+│   │           ├── livro-read-all/
+│   │           ├── livro-read-text/
+│   │           ├── livro-update/
+│   │           └── livro-delete/
+│   ├── app-routing.module.ts
+│   └── app.module.ts
+├── assets/
+│   └── img/
+│       └── livro.png
+├── environments/
+└── styles.css
+```
+
+---
+
+### ⚙️ Como Executar o Projeto
+
+1. **Clonar o repositório:**
+```bash
+git clone https://github.com/wesleymrosa/bookstore-front.git
+cd bookstore-front
+```
+
+2. **Instalar as dependências:**
+```bash
+npm install
+```
+
+3. **Executar a aplicação Angular:**
+```bash
+ng serve
+```
+
+4. **Acessar no navegador:**
+```
+http://localhost:4200
+```
+
+⚠️ **Importante:** Certifique-se de que o backend esteja rodando em `http://localhost:8082`.
+
+---
+
+### 🔄 Integração com o Backend
+
+A aplicação consome a API RESTful do projeto [bookstore-api](https://github.com/wesleymrosa/bookstore-api), realizando as seguintes operações:
+
+#### 📂 Categorias
+```
+GET     /categorias
+GET     /categorias/{id}
+POST    /categorias
+PUT     /categorias/{id}
+DELETE  /categorias/{id}
+```
+
+#### 📚 Livros
+```
+GET     /livros?categoria={id}
+GET     /livros/{id}
+POST    /livros?categoria={id}
+PUT     /livros/{id}
+DELETE  /livros/{id}
+```
+
+---
+
+### 🧪 Testes e Validações
+
+- ✅ Validações de formulário com Angular Forms  
+- ✅ Testes manuais com Postman e navegador  
+- ✅ Respostas dinâmicas e feedbacks visuais  
+- ✅ Integração funcional com o backend Spring Boot  
+
+---
+
+### 🔗 Repositório Backend
+
+📦 Repositório complementar da API:  
+[https://github.com/wesleymrosa/bookstore-api](https://github.com/wesleymrosa/bookstore-api)
+
+---
+
+### 👨‍💻 Autor
+
+**Wesley Martins Rosa**  
+📧 E-mail: wesleymrosa@gmail.com  
+🔗 LinkedIn: https://www.linkedin.com/in/wesley-martins-rosa-5118aa15a  
+🔗 GitHub: https://github.com/wesleymrosa
